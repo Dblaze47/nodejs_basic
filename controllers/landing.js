@@ -9,10 +9,10 @@
 * module.exports = { funcName: myFunc };
 *
 * */
-function indexController(req, res, next){
-    res.render('index', { title: 'Express' });
-};
+function get_landing(req, res, next){
+    res.render('landing', { title: 'Express' });
+}
 
 module.exports = {
-    index: indexController
+    get_landing
 };
