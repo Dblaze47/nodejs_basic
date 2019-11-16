@@ -1,8 +1,9 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+    h1= heading
+    p Welcome to #{title}&nbsp;:&nbsp;&nbsp;
+        a(href="https://expressjs.com/", target="_blank") ExpressJS
     form(action="/", method="POST")
-        input(type="email", placeholder="Enter your email address")
+        input(name="lead_email", type="email", placeholder="Enter your email address")
         button(type="submit") Submit

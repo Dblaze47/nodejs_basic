@@ -1,18 +1,17 @@
 // exports.index = function(req, res, next){
 //     res.render('index', { title: 'Express' });
 // };
-/* We can either export function by function, or make a module export to export an object with multiple functions.
-* So we either do exports.funcName = function(params){ //code }
-* Or we do module.exports = { funcName: function(params){ //code } }
-* Or to keep it clean:
-* function myFunc(params){ //code };
-* module.exports = { funcName: myFunc };
-*
-* */
+
 function get_landing(req, res, next){
-    res.render('landing', { title: 'Express' });
+    res.render('landing', { heading: 'Demo Express', title: 'Express' });
+}
+
+function submit_lead(req, res, next){
+    console.log("lead email: ", req.body.lead_email);
+    res.redirect('/');
 }
 
 module.exports = {
-    get_landing
+    get_landing,
+    submit_lead
 };
