@@ -20,5 +20,14 @@ module.exports = {
             .then(leads => {
                 res.render('landing', {title: 'Demo Express', leads: leads});
             });
+    },
+    show_lead: (req, res, next) => {
+        return models.Lead.findOne({
+            where: {
+                id: req.params.lead_id
+            }
+        }).then(lead => {
+            res.render('lead', {  lead: lead});
+        });
     }
 };
