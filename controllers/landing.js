@@ -49,5 +49,14 @@ module.exports = {
         }).then(result => {
             res.redirect('/lead/' + req.params.lead_id);
         });
+    },
+    delete_lead: (req, res, next) => {
+        return models.Lead.destroy({
+            where: {
+                id: req.params.lead_id
+            }
+        }).then(results => {
+            res.redirect('/leads');
+        });
     }
 };
