@@ -12,7 +12,13 @@ module.exports = {
         return models.Lead.create({
             email: req.body.lead_email
         }).then(lead => {
-            res.redirect('/');
+            res.redirect('/leads');
         });
+    },
+    show_leads: (req, res, next) => {
+        models.Lead.findAll()
+            .then(leads => {
+                res.render('landing', {title: 'Demo Express', leads: leads});
+            });
     }
 };
