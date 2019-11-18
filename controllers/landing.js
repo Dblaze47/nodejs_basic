@@ -27,7 +27,27 @@ module.exports = {
                 id: req.params.lead_id
             }
         }).then(lead => {
-            res.render('lead', {  lead: lead});
+            res.render('lead/lead', {  lead: lead});
+        });
+    },
+    show_edit_lead: (req, res, next) => {
+        return models.Lead.findOne({
+            where: {
+                id: req.params.lead_id
+            }
+        }).then(lead => {
+            res.render('lead/edit_lead', { lead: lead });
+        });
+    },
+    edit_lead: (req, res, next) => {
+        return models.Lead.update({
+            email: req.body.lead_email
+        }, {
+            where: {
+                id: req.params.lead_id
+            }
+        }).then(result => {
+            res.redirect('/lead/' + req.params.lead_id);
         });
     }
 };
